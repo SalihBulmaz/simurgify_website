@@ -23,7 +23,6 @@
   <link rel="stylesheet" type="text/css" href="css/theme.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <!-- End Include All CSS -->
-
   <!-- Favicon Icon -->
   <link rel="icon" type="image/png" href="images/favicona.png">
 </head>
@@ -77,8 +76,8 @@
         <div class="col-lg-3 col-md-2 hidden-xs hidden-sm">
           <div class="h6_meta text-right">
             <span style="margin: auto 2rem;" class="">
-              <button style="vertical-align: middle; padding: 0!important; color: white" type="button" class="ast_btn"
-                data-toggle="modal" data-target="#login-modal">Sign In</button>
+              <a style="min-width: 120px; padding: 0!important" class="ast_btn" href="#"
+                data-toggle="modal" data-target="#login-modal"><span style="margin: 0; padding: 0">Sign In</span></a>
             </span>
             <!-- <span>
               <span style="vertical-align: middle"><i class="la la-envelope-o"></i>support@wargency.com</span>
@@ -683,7 +682,7 @@
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document" style="min-width: 500px!important">
       <div class="modal-content" style="padding: 2rem">
-        <div id="form-signin" class="form-signin">
+        <div class="form-signin">
           <div class="card bg-white mb15">
             <div class="card-header text-center">
               <h2>Sign in</h2>
@@ -709,7 +708,8 @@
               <div class="mt5"><a href="https://crm.simurgify.com/index.php/signin/request_reset_password">Forgot
                   password?</a></div>
 
-              <div class="mt20">You don't have an account? &nbsp; <a style="cursor: pointer" id="show-signup">Sign up</a></div>
+              <div class="mt20">You don't have an account? &nbsp; <a style="cursor: pointer" class="show-signup">Sign
+                  up</a></div>
 
             </div>
           </div>
@@ -719,9 +719,13 @@
             $(document).ready(function () {
               $("#signin-form").appForm({ ajaxSubmit: false, isModal: false });
             });
+            const labels = document.querySelectorAll('label')
+            labels.forEach((elm) => {
+              elm.style.marginTop = '1.2rem'
+            })
           </script>
         </div>
-        <div id="form-signup" style="display: none" class="form-signup">
+        <div style="display: none" class="form-signup">
           <div class="card bg-white clearfix">
             <div class="card-header text-center">
               <h2 class="form-signin-heading">Sign up</h2>
@@ -811,7 +815,7 @@
               </form>
             </div>
           </div>
-          <div id="signin_link">Already have an account? <a href="" id="show-signin">Sign
+          <div id="signin_link">Already have an account? <a href="" class="show-signin">Sign
               in</a></div>
         </div>
       </div>
