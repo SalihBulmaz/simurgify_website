@@ -77,8 +77,8 @@
         <div class="col-lg-3 col-md-2 hidden-xs hidden-sm">
           <div class="h6_meta text-right">
             <span style="margin: auto 2rem;" class="">
-              <button style="vertical-align: middle;" type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#login-modal">Login</button>
+              <button style="vertical-align: middle; padding: 0!important; color: white" type="button" class="ast_btn"
+                data-toggle="modal" data-target="#login-modal">Sign In</button>
             </span>
             <!-- <span>
               <span style="vertical-align: middle"><i class="la la-envelope-o"></i>support@wargency.com</span>
@@ -683,7 +683,7 @@
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document" style="min-width: 500px!important">
       <div class="modal-content" style="padding: 2rem">
-        <div class="form-signin">
+        <div id="form-signin" class="form-signin">
           <div class="card bg-white mb15">
             <div class="card-header text-center">
               <h2>Sign in</h2>
@@ -709,8 +709,7 @@
               <div class="mt5"><a href="https://crm.simurgify.com/index.php/signin/request_reset_password">Forgot
                   password?</a></div>
 
-              <div class="mt20">You don't have an account? &nbsp; <a
-                  href="#" id="showignup">Sign up</a></div>
+              <div class="mt20">You don't have an account? &nbsp; <a style="cursor: pointer" id="show-signup">Sign up</a></div>
 
             </div>
           </div>
@@ -721,6 +720,99 @@
               $("#signin-form").appForm({ ajaxSubmit: false, isModal: false });
             });
           </script>
+        </div>
+        <div id="form-signup" style="display: none" class="form-signup">
+          <div class="card bg-white clearfix">
+            <div class="card-header text-center">
+              <h2 class="form-signin-heading">Sign up</h2>
+              <p>Create an account as a new client.</p>
+            </div>
+            <div class="card-body p30 rounded-bottom">
+              <form action="https://crm.simurgify.com/index.php/signup/create_account" id="signup-form"
+                class="general-form" role="form" method="post" accept-charset="utf-8" novalidate="novalidate">
+                <input type="hidden" name="rise_csrf_token" value="f0f223b8d3bf810d226b60ed51fecdc5">
+                <div class="form-group">
+                  <label for="name" class="col-md-12">First name</label>
+                  <div class="col-md-12">
+                    <input type="text" name="first_name" value="" id="first_name" class="form-control" autofocus="1"
+                      data-rule-required="1" data-msg-required="This field is required.">
+                  </div>
+                </div>
+
+                <input type="hidden" name="signup_key" value="">
+                <input type="hidden" name="role_id" value="">
+
+                <div class="form-group">
+                  <label for="last_name" class="col-md-12">Last name</label>
+                  <div class="col-md-12">
+                    <input type="text" name="last_name" value="" id="last_name" class="form-control"
+                      data-rule-required="1" data-msg-required="This field is required.">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <label for="account_type" class="col-md-12">Type</label>
+                    <div class="col-md-12">
+                      <input type="radio" name="account_type" value="organization" checked="checked"
+                        id="type_organization" class="form-check-input account-type"
+                        data-msg-required="This field is required.">
+                      <label for="type_organization" class="mr15">Organization</label>
+                      <input type="radio" name="account_type" value="person" id="type_person"
+                        class="form-check-input account-type" data-msg-required="This field is required.">
+                      <label for="type_person" class="">Individual</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group company-name-section">
+                  <label for="company_name" class="col-md-12">Company name</label>
+                  <div class="col-md-12">
+                    <input type="text" name="company_name" value="" id="company_name" class="form-control">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="col-md-12">Email</label>
+                  <div class="col-md-12">
+                    <input type="text" name="email" value="" id="email" class="form-control" autofocus="1"
+                      data-rule-email="1" data-msg-email="Please enter a valid email address." data-rule-required="1"
+                      data-msg-required="This field is required.">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="password" class="col-md-12">Password</label>
+                  <div class="col-md-12">
+                    <input type="password" name="password" value="" id="password" class="form-control"
+                      data-rule-required="1" data-msg-required="This field is required." data-rule-minlength="6"
+                      data-msg-minlength="Please enter at least 6 characters." autocomplete="off" style="z-index:auto;">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="retype_password" class="col-md-12">Retype password</label>
+                  <div class="col-md-12">
+                    <input type="password" name="retype_password" value="" id="retype_password" class="form-control"
+                      autocomplete="off" style="z-index:auto;" data-rule-equalto="#password"
+                      data-msg-equalto="Please enter the same value again.">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <button style="margin-top: 1rem" class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          <div id="signin_link">Already have an account? <a href="" id="show-signin">Sign
+              in</a></div>
         </div>
       </div>
     </div>
